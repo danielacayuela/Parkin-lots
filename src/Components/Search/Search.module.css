@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+.searchbar > input {
+  border-radius: 2px;
+  border: 2px solid rgb(1, 1, 16);
+}
+
+.searchbar > input::placeholder {
+  color: rgb(197, 194, 194);
+  font-family: "Anton", sans-serif;
+  font-size: 10px;
+}
+
+.searchbar > button {
+  border-radius: 2px;
+  border: 2px solid rgb(1, 1, 16);
+  background-color: rgb(1, 1, 16);
+  font-family: "Anton", sans-serif;
+  font-size: 10px;
+  color: white;
+}

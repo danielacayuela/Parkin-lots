@@ -1,0 +1,21 @@
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home__container {
+  border: 1px solid #e67e22;
+  background-color: #e67e22;
+  padding: 20px;
+  color: white;
+  margin: auto;
+  margin-top: 50px;
+  max-width: 700px;
+  max-height: 300px;
+  border-radius: 5px;
+}
+
+.home__search {
+  margin: 30px;
+}
