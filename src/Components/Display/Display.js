@@ -11,7 +11,6 @@ export default function Display({ match }) {
   const dispatch = useDispatch();
   const parkings = useSelector((state) => state.parkings);
   const noResults = useSelector((state) => state.noResults);
-  console.log("PARKINGS>>>", parkings);
   const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
 
