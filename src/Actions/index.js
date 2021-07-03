@@ -17,17 +17,17 @@ export function getParkings(cityCode) {
     try {
       let arrayParkings = [];
       let offsetInteger = 0;
-      for (let i = 1; i < 20; i++) {
-        //i<20
-        console.log("ENTRE AL FOR");
-        const req = await axios.get(
-          `${url}&location=${cityCode}&offset=${offsetInteger}&limit=50&sort_by=rating`
-        );
-        const result = req.data.businesses;
-        arrayParkings = arrayParkings.concat(result);
-        offsetInteger = offsetInteger + 50;
-      }
-      console.log("SALI DEL FOR");
+      // for (let i = 1; i < 20; i++) {
+      //i<20
+      // console.log("ENTRE AL FOR");
+      const req = await axios.get(
+        `${url}&location=${cityCode}&offset=${offsetInteger}&limit=50&sort_by=rating`
+      );
+      const result = req.data.businesses;
+      arrayParkings = arrayParkings.concat(result);
+      // offsetInteger = offsetInteger + 50;
+      // }
+      // console.log("SALI DEL FOR");
       if (arrayParkings.length > 0) {
         dispatch({
           type: "GET_PARKINGS",
