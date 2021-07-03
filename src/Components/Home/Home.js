@@ -11,7 +11,8 @@ function Home() {
             {" "}
             Hi there! To find parking lots in the location you want, enter in
             the search bar the city, city code or address you want to search
-            for. The closest results to your search criteria will be displayed.{" "}
+            for. The closest results to your search criteria will be displayed,
+            ordered by rating.{" "}
           </p>
         </div>
         <div className={Style.home__search}>

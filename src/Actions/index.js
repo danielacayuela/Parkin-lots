@@ -1,6 +1,5 @@
 import axios from "axios";
 
-console.log("ENV", process.env);
 const url = `/v3/businesses/search?term="parking"`;
 
 axios.interceptors.request.use(
@@ -18,11 +17,11 @@ export function getParkings(cityCode) {
     try {
       let arrayParkings = [];
       let offsetInteger = 0;
-      for (let i = 1; i < 20; i++) {
+      for (let i = 1; i < 5; i++) {
         //i<20
         console.log("ENTRE AL FOR");
         const req = await axios.get(
-          `${url}&location=${cityCode}&offset=${offsetInteger}&limit=50`
+          `${url}&location=${cityCode}&offset=${offsetInteger}&limit=50&sort_by=rating`
         );
         const result = req.data.businesses;
         arrayParkings = arrayParkings.concat(result);

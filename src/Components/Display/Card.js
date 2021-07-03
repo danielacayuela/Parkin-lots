@@ -1,4 +1,5 @@
 import React from "react";
+import Rating from "../Rating/Rating.js";
 import Style from "./Card.module.css";
 
 function Card({ parking }) {
@@ -10,7 +11,7 @@ function Card({ parking }) {
           <div className={Style.card__image}>
             <img
               src={
-                parking.image_url ||
+                parking?.image_url ||
                 "https://www.iconpacks.net/icons/2/free-parking-sign-icon-2526-thumb.png"
               }
             />
@@ -19,11 +20,13 @@ function Card({ parking }) {
         <div className={Style.card__rigth}>
           <div className={Style.card__section}>
             <strong>Adress:</strong>
-            <small>{parking.location.display_address.join(",")}</small>
+            <small>{parking?.location.display_address.join(",")}</small>
           </div>
           <div className={Style.card__section}>
             <strong>Rating:</strong>
-            <small>{parking.rating}</small>
+            <small>
+              <Rating value={parking?.rating} />
+            </small>
           </div>
           <div className={Style.card__section}>
             <strong>Reviews:</strong>
@@ -33,15 +36,15 @@ function Card({ parking }) {
             <strong> Score:</strong>
             <small>
               {Math.round(
-                ((parking.review_count * parking.rating) /
-                  (parking.review_count + 1)) *
+                ((parking?.review_count * parking?.rating) /
+                  (parking?.review_count + 1)) *
                   100
               ) / 100}
             </small>
           </div>
           <div className={Style.card__button}>
             <button>
-              <a href={parking.url}>Yelp</a>
+              <a href={parking?.url}>Yelp</a>
             </button>
           </div>
         </div>

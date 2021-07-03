@@ -8,7 +8,6 @@ import Style from "./Display.module.css";
 
 export default function Display({ match }) {
   const searchQuery = match.params.city;
-  console.log("SEARCH>>", searchQuery);
   const dispatch = useDispatch();
   const parkings = useSelector((state) => state.parkings);
   const noResults = useSelector((state) => state.noResults);
@@ -17,7 +16,6 @@ export default function Display({ match }) {
   const [loading, setLoading] = useState(false);
 
   useEffect(async () => {
-    console.log("ENTRE USEEFFECT");
     setLoading(true);
     await dispatch(getParkings(searchQuery));
     setLoading(false);
@@ -25,7 +23,7 @@ export default function Display({ match }) {
 
   function handlePageNext(e) {
     e.preventDefault();
-    let max = Math.ceil(parkings.length / 20 - 1);
+    let max = Math.ceil(parkings?.length / 20 - 1);
     if (max < 0) {
       max = 1;
     }
@@ -41,26 +39,19 @@ export default function Display({ match }) {
     }
   }
 
-  function sortScore(arg) {
-    return (
-      Math.round(
-        ((arg.review_count * arg.rating) / (arg.review_count + 1)) * 100
-      ) / 100
-    );
-  }
   return (
     <div className={Style.display}>
       <div className={Style.display__cards}>
         {loading ? (
           <Loading />
-        ) : parkings.length > 0 ? (
+        ) : parkings?.length > 0 ? (
           parkings
             .sort((a, b) => {
-              return sortScore(a) - sortScore(b);
+              return a.rating - b.rating;
             })
             .slice(page * 20, page * 20 + 20)
             .map((parking) => {
-              return <Card parking={parking} key={parking.id} />;
+              return <Card parking={parking} key={parking?.id} />;
             })
         ) : noResults ? (
           <h4>Sorry, no parking lots were found</h4>
