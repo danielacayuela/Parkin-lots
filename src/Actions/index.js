@@ -17,7 +17,7 @@ export function getParkings(cityCode) {
     try {
       let arrayParkings = [];
       let offsetInteger = 0;
-      for (let i = 1; i < 5; i++) {
+      for (let i = 1; i < 20; i++) {
         //i<20
         console.log("ENTRE AL FOR");
         const req = await axios.get(
