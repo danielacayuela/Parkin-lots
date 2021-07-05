@@ -4,7 +4,7 @@ const url = `/v3/businesses/search?term="parking"`;
 
 axios.interceptors.request.use(
   (config) => {
-    config.headers.authorization = `Bearer ${process.env.REACT_APP_API_KEY}`;
+    config.headers.authorization = `Bearer OCLWs0cBv8MqPuoukQSinGPlcTxRhtbkqQiMtYFrd1-ATjn3_9Bij8IWki8xWamjivyJ77_ny0SHs09pcXVa7OTSjOKTF3c86pz1rT7x5be4jOt3wDNuMfvsDW3gYHYx`;
     return config;
   },
   (error) => {
